@@ -25,11 +25,11 @@ for line in lines:
 		db.rollback()	
 		var_string = ','.join('%s' for i in range(col))
 		query = 'INSERT INTO '+tableName + ' VALUES (%s);' % var_string
-		print(var_string)
-		if(line!=1):
+		print(str(lineNo)+":"+var_string)
+		if(lineNo!=1):
 			try:
 				cursor.execute(query,vals)
 				db.commit()
 			except:
 				db.rollback()	
-	line=2
+	lineNo=2
